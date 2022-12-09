@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'name'      => 'Fawwaz Hudzalfah Saputra',
             'email'     => 'manusiacoding29@gmail.com',
             'password'  => Hash::make('fawwaz29'),
-            'image'     => null,
+            'image'     => 'storage/users/unnamed.jpg',
         ]);
     }
 }

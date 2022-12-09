@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.home.content');
+        $client = new Client();
+        $response = $client->get('https://api.github.com/users/manusiacoding/repos');
+        $datarepos = json_decode($response->getBody());
+
+        return view('pages.home.content', compact(['datarepos']));
     }
 }

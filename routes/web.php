@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
@@ -16,12 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // force logout routes, temporary for debugging
-Route::get('/force/logout', function (Request $request) {
+Route::get('/force/logout', function () {
     Auth::guard('web')->logout();
     return redirect()->route('login');
 });
 
-Route::get('/', [HomeController::class, 'index']);
+
+Route::middleware(['auth'])->group(function () {
+    // Home Routes
+    Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
+    // About Routes
+    Route::prefix('about')->group(function () {
+        Route::controller(AboutController::class)->group(function () {
+            Route::get('/', 'index')->name('about.index');
+            Route::post('/update/{id}', 'update')->name('about.update');
+        });
+    });
+});
 
 Auth::routes();
 
