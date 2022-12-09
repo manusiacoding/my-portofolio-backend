@@ -8,6 +8,7 @@
     <title>My Portofolio | @yield('title')</title>
 
     @include('components.css')
+    @vite('resources/css/app.css')
 </head>
 
 <body>
@@ -31,6 +32,7 @@
 
     @include('components.js')
     @yield('js')
+    @vite('resources/js/app.js')
 </body>
 
 </html>
