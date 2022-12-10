@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
+                <div class="card-header pb-1">
+                    <h4>About Me</h4>
+                </div>
                 <div class="card-body">
                     @if ($message = Session::get('success'))
                         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -35,9 +38,9 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    <form class="forms-sample" method="POST" action="{{ route('about.update', $about->id) }}"
-                        enctype="multipart/form-data">
+                    <form class="forms-sample" method="POST" action="{{ route('about.update', $about->id) }}" enctype="multipart/form-data">
                         @csrf
+                        @method('put')
                         <div class="form-group">
                             <label for="exampleInputName1">Name</label>
                             <input type="text" class="form-control" name="name" placeholder="Input your name"
@@ -96,7 +99,7 @@
                                 </span>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary me-2" id="save">Submit</button>
+                        <button type="submit" class="btn btn-primary p-2" id="save">Submit</button>
                     </form>
                 </div>
             </div>

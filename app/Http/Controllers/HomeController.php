@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -29,6 +30,8 @@ class HomeController extends Controller
         $response = $client->get('https://api.github.com/users/manusiacoding/repos');
         $datarepos = json_decode($response->getBody());
 
-        return view('pages.home.content', compact(['datarepos']));
+        $skill = Skill::all()->count();
+
+        return view('pages.home.content', compact(['datarepos', 'skill']));
     }
 }

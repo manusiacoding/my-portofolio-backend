@@ -2,44 +2,60 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>My Portofolio | @yield('title')</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Dashboard | @yield('title')</title>
 
-    @include('components.css')
-    {{-- @vite('resources/css/app.css') --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}" />
+
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png" />
 </head>
 
 <body>
-    <div class="container-scroller">
+    <div id="app">
+
         @include('components.sidebar')
-        <!-- partial -->
-        <div class="container-fluid page-body-wrapper">
-            {{-- @include('components.navbar', ['repos' => $datarepos]) --}}
+
+        <div id="main" class="layout-navbar navbar-fixed">
+
             @include('components.navbar')
-            <!-- partial -->
-            <div class="main-panel">
-                <div class="content-wrapper">
+
+            <div id="main-content">
+                <div class="page-heading">
+                    <div class="page-title">
+                        <div class="row">
+                            <div class="col-12 col-md-6 order-md-1 order-last">
+                                <h3>Vertical Layout with Navbar</h3>
+                                <p class="text-subtitle text-muted">
+                                    Navbar will appear on the top of the page.
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-6 order-md-2 order-first">
+                                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="index.html">Dashboard</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Layout Vertical Navbar
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    
                     @yield('content')
                 </div>
-                <!-- content-wrapper ends -->
+
                 @include('components.footer')
             </div>
-            <!-- main-panel ends -->
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
-
-    @include('components.js')
-    @yield('js')
-    {{-- @vite('resources/js/app.js') --}}
-    <script>
-        $('.logout').on('click', function(){
-            $('.btnlogout').click();
-        });
-    </script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 
 </html>

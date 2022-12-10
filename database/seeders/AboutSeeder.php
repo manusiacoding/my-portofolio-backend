@@ -26,7 +26,7 @@ class AboutSeeder extends Seeder
             'email'         => 'manusiacoding29@gmail.com',
             'status'        => 'Single',
             'description'   => 'IT Professional with 6 years of experience in software development and in creating innovative solutions to system issues. I am a team player with strong programming experience to build and operate secure systems. Able to explain complex software problems in easy-to-reach terms.',
-            'image'         => null,
+            'image'         => 'storage/about/2022-12-09 22:50:02_profile.jpg',
         ]);
     }
 }

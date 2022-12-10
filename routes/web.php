@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +31,19 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('about')->group(function () {
         Route::controller(AboutController::class)->group(function () {
             Route::get('/', 'index')->name('about.index');
-            Route::post('/update/{id}', 'update')->name('about.update');
+            Route::put('/update/{id}', 'update')->name('about.update');
+        });
+    });
+
+    // Skill Routes
+    Route::prefix('skill')->group(function () {
+        Route::controller(SkillController::class)->group(function () {
+            Route::get('/', 'index')->name('skill.index');
+            Route::get('/add', 'create')->name('skill.create');
+            Route::post('/store', 'store')->name('skill.store');
+            Route::get('/{id}/edit', 'edit')->name('skill.edit');
+            Route::put('/{id}/update', 'update')->name('skill.update');
+            Route::delete('/{id}/delete', 'destroy')->name('skill.destroy');
         });
     });
 });

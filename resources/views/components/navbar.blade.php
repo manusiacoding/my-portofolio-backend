@@ -1,153 +1,120 @@
-<!-- partial:partials/_navbar.html -->
-<nav class="navbar p-0 fixed-top d-flex flex-row">
-    <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo-mini" href="javacript:void(0)"><img src="{{ asset('assets/images/logo-mini.svg') }}" alt="logo" /></a>
-    </div>
-    <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-        </button>
-        <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success px-2" href="#">+ Add New Portfolio</a>
-            </li>
-            <li class="nav-item dropdown border-left">
-                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="mdi mdi-email"></i>
-                    <span class="count bg-success"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                    aria-labelledby="messageDropdown">
-                    <h6 class="p-3 mb-0">Messages</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="assets/images/faces/face4.jpg" alt="image"
-                                class="rounded-circle profile-pic">
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
-                            <p class="text-muted mb-0"> 1 Minutes ago </p>
+<header class="mb-3">
+    <nav class="navbar navbar-expand navbar-light navbar-top">
+        <div class="container-fluid">
+            <a href="#" class="burger-btn d-block">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-lg-0">
+                    <li class="nav-item dropdown me-1">
+                        <a class="nav-link active dropdown-toggle text-gray-600" href="#"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-envelope bi-sub fs-4"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <h6 class="dropdown-header">Mail</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="#">No new mail</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link active dropdown-toggle text-gray-600" href="#"
+                            data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                            <i class="bi bi-bell bi-sub fs-4"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end notification-dropdown"
+                            aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-header">
+                                <h6>Notifications</h6>
+                            </li>
+                            <li class="dropdown-item notification-item">
+                                <a class="d-flex align-items-center" href="#">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="bi bi-cart-check"></i>
+                                    </div>
+                                    <div class="notification-text ms-4">
+                                        <p class="notification-title font-bold">
+                                            Successfully check out
+                                        </p>
+                                        <p class="notification-subtitle font-thin text-sm">
+                                            Order ID #256
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-item notification-item">
+                                <a class="d-flex align-items-center" href="#">
+                                    <div class="notification-icon bg-success">
+                                        <i class="bi bi-file-earmark-check"></i>
+                                    </div>
+                                    <div class="notification-text ms-4">
+                                        <p class="notification-title font-bold">
+                                            Homework submitted
+                                        </p>
+                                        <p class="notification-subtitle font-thin text-sm">
+                                            Algebra math homework
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <p class="text-center py-2 mb-0">
+                                    <a href="#">See all notification</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="user-menu d-flex">
+                            <div class="user-name text-end me-3">
+                                <h6 class="mb-0 text-gray-600">John Ducky</h6>
+                                <p class="mb-0 text-sm text-gray-600">Administrator</p>
+                            </div>
+                            <div class="user-img d-flex align-items-center">
+                                <div class="avatar avatar-md">
+                                    <img src="assets/images/faces/1.jpg" />
+                                </div>
+                            </div>
                         </div>
                     </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="assets/images/faces/face2.jpg" alt="image"
-                                class="rounded-circle profile-pic">
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
-                            <p class="text-muted mb-0"> 15 Minutes ago </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <img src="assets/images/faces/face3.jpg" alt="image"
-                                class="rounded-circle profile-pic">
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
-                            <p class="text-muted mb-0"> 18 Minutes ago </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <p class="p-3 mb-0 text-center">4 new messages</p>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"
+                        style="min-width: 11rem">
+                        <li>
+                            <h6 class="dropdown-header">Hello, John!</h6>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"><i
+                                    class="icon-mid bi bi-person me-2"></i> My
+                                Profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"><i
+                                    class="icon-mid bi bi-gear me-2"></i> Settings</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"><i
+                                    class="icon-mid bi bi-wallet me-2"></i> Wallet</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"><i
+                                    class="icon-mid bi bi-box-arrow-left me-2"></i>
+                                Logout</a>
+                        </li>
+                    </ul>
                 </div>
-            </li>
-            <li class="nav-item dropdown border-left">
-                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown"
-                    href="#" data-bs-toggle="dropdown">
-                    <i class="mdi mdi-bell"></i>
-                    <span class="count bg-danger"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                    aria-labelledby="notificationDropdown">
-                    <h6 class="p-3 mb-0">Notifications</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-calendar text-success"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject mb-1">Event today</p>
-                            <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event
-                                today </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-settings text-danger"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject mb-1">Settings</p>
-                            <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-link-variant text-warning"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject mb-1">Launch Admin</p>
-                            <p class="text-muted ellipsis mb-0"> New admin wow! </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <p class="p-3 mb-0 text-center">See all notifications</p>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link" id="profileDropdown" href="javascript:void(0)" data-bs-toggle="dropdown">
-                    <div class="navbar-profile">
-                        {{-- <img class="img-xs rounded-circle" src="{{ asset('assets/images/faces/face15.jpg') }}" alt=""> --}}
-                        <img class="img-xs rounded-circle" src="{{ asset(Auth::user()->image) }}" alt="">
-                        <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
-                        <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                    </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                    <h6 class="p-3 mb-0">User Settings</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-settings text-success"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject mb-1">Settings</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-logout text-danger"></i>
-                            </div>
-                        </div>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <div class="preview-item-content">
-                                <p class="preview-subject logout mb-1">Log out</p>
-                                <button type="submit" class="d-none btnlogout"></button>
-                            </div>
-                        </form>
-                    </a>
-                </div>
-            </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-format-line-spacing"></span>
-        </button>
-    </div>
-</nav>
+            </div>
+        </div>
+    </nav>
+</header>
