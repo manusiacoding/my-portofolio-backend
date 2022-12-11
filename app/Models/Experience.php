@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Experience extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'company',
+        'position',
+        'date',
+        'description',
+    ];
 }

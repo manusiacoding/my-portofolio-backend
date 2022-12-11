@@ -63,6 +63,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ Request::is('experience') ? 'active' : '' }}">
+                    <a href="{{ route('experience.index') }}" class="sidebar-link">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>Experience</span>
+                    </a>
+                </li>
+
                 {{-- <li class="sidebar-item has-sub">
                     <a href="#" class="sidebar-link">
                         <i class="bi bi-grid-1x2-fill"></i>

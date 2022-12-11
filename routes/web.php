@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
@@ -57,6 +58,18 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/edit', 'edit')->name('education.edit');
             Route::put('/{id}/update', 'update')->name('education.update');
             Route::delete('/{id}/delete', 'destroy')->name('education.destroy');
+        });
+    });
+
+    // Experience Routes
+    Route::prefix('experience')->group(function () {
+        Route::controller(ExperienceController::class)->group(function () {
+            Route::get('/', 'index')->name('experience.index');
+            Route::get('/add', 'create')->name('experience.create');
+            Route::post('/store', 'store')->name('experience.store');
+            Route::get('/{id}/edit', 'edit')->name('experience.edit');
+            Route::put('/{id}/update', 'update')->name('experience.update');
+            Route::delete('/{id}/delete', 'destroy')->name('experience.destroy');
         });
     });
 });
