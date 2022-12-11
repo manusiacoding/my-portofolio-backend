@@ -34,6 +34,7 @@
                 <table class="table table-bordered table-striped" id="table1">
                     <thead class="thead-dark">
                         <tr>
+                            <th>#</th>
                             <th>Company</th>
                             <th>Position</th>
                             <th>Date</th>
@@ -42,8 +43,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($experience as $data)
+                        @foreach ($experience as $key => $data)
                             <tr>
+                                <td>{{ $key + 1 }}</td>
                                 <td>{{ $data->company }}</td>
                                 <td>{{ $data->position }}</td>
                                 <td>{{ $data->date }}</td>

@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Dashboard | Education</title>
+    <title>My Dashboard | Portfolio</title>
     <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}" />
     <link rel="shortcut icon" href="{{ asset('assets/images/avatar.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ route('education.index') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ route('portfolio.index') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="{{ route('home.index') }}">
                 <img src="{{ asset('assets/images/logo-mctech.png') }}" />
             </a>
@@ -46,63 +47,85 @@
                         }).showToast();
                     </script>
                 @endif
-                <form action="{{ route('education.store') }}" class="form form-vertical" method="POST">
+                <form action="{{ route('portfolio.update', $portfolio->id) }}" class="form form-vertical" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <div class="form-body">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group has-icon-left">
-                                    <label for="first-name-icon">Name</label>
+                                    <label for="first-name-icon">Project Name</label>
                                     <div class="position-relative">
-                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Enter education name" id="first-name-icon" />
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Enter project name" id="first-name-icon" value="{{ $portfolio->name }}" />
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                         <div class="form-control-icon">
-                                            <i class="bi bi-buildings-fill"></i>
+                                            <i class="fa-solid fa-globe"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group has-icon-left">
-                                    <label for="email-id-icon">Graduation Year</label>
+                                    <label for="email-id-icon">Company Name</label>
                                     <div class="position-relative">
-                                        <input type="text" name="year" class="form-control @error('year') is-invalid @enderror" placeholder="Enter graduation year" id="email-id-icon" />
-                                        @error('year')
+                                        <input type="text" name="company" class="form-control @error('company') is-invalid @enderror" placeholder="Enter company name" id="email-id-icon" value="{{ $portfolio->company_name }}" />
+                                        @error('company')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                         <div class="form-control-icon">
-                                            <i class="bi bi-calendar-date"></i>
+                                            <i class="fa-solid fa-building"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group has-icon-left">
-                                    <label for="email-id-icon">Major</label>
+                                    <label for="email-id-icon">Project Type</label>
                                     <div class="position-relative">
-                                        <input type="text" name="major" class="form-control @error('major') is-invalid @enderror" placeholder="Enter major" id="email-id-icon" />
-                                        @error('major')
+                                        <select name="type" id="email-id-icon" class="form-control @error('type') is-invalid @enderror">
+                                            <option value="" selected disabled>Choose project type</option>
+                                            <option value="Mobile Apps" @if($portfolio->type == "Mobile Apps") selected @endif>Mobile Apps</option>
+                                            <option value="Website" @if($portfolio->type == "Website") selected @endif>Website</option>
+                                        </select>
+                                        @error('company')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                         <div class="form-control-icon">
-                                            <i class="bi bi-person-check-fill"></i>
+                                            <i class="fa-solid fa-diagram-project"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <div class="form-group has-icon-left">
+                                    <label for="email-id-icon">Project URL</label>
+                                    <div class="position-relative">
+                                        <input type="text" name="url" class="form-control @error('url') is-invalid @enderror" placeholder="Enter project url" id="email-id-icon" value="{{ $portfolio->url }}" />
+                                        @error('url')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                        <div class="form-control-icon">
+                                            <i class="fa-solid fa-link"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="email-id-icon">Description</label>
+                                    <label for="email-id-icon">Project Description</label>
                                     <div class="position-relative">
-                                        <textarea name="description" class="form-control @error('description') is-invalid @enderror" cols="30" rows="10"></textarea>
+                                        <textarea name="description" id="email-id-icon" cols="30" rows="10" class="form-control @error('description') is-invalid @enderror">{{ $portfolio->description }}</textarea>
                                         @error('description')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -111,6 +134,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="email-id-icon">Project Image</label>
+                                    <div class="position-relative">
+                                        <img src="{{ asset($portfolio->image) }}" alt="image" class="img-thumbnail w-25 my-3">
+                                        <input name="image" class="form-control @error('image') is-invalid @enderror" type="file" id="formFile" accept="image/*" />
+                                        @error('image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
                             <div class="col-12 mt-2 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-outline-primary me-2 mb-1">
                                     Submit
@@ -127,6 +165,7 @@
     </div>
 
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>

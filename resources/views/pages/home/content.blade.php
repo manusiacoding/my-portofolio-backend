@@ -4,7 +4,7 @@
 <style>
     .card-content{
         max-height: 250px;
-        overflow:scroll;
+        overflow-y:scroll;
         -webkit-overflow-scrolling: touch;
     }
 </style>

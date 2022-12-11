@@ -9,6 +9,9 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/avatar.ico') }}" type="image/x-icon">
 
     @include('components.css')
+
+    {{-- @vite('resources/css/app.css') --}}
+    
     @yield('css')
 </head>
 
@@ -50,6 +53,8 @@
     </div>
 
     @include('components.js')
+
+    {{-- @vite('resources/js/app.js') --}}
 
     @yield('js')
     <script>

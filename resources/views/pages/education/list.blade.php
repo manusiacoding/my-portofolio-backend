@@ -34,6 +34,7 @@
                 <table class="table table-bordered table-striped" id="table1">
                     <thead class="thead-dark">
                         <tr>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Year</th>
                             <th>Major</th>
@@ -42,8 +43,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($education as $data)
+                        @foreach ($education as $key => $data)
                             <tr>
+                                <td>{{ $key + 1 }}</td>
                                 <td>{{ $data->name }}</td>
                                 <td>{{ $data->year }}</td>
                                 <td>{{ $data->major }}</td>

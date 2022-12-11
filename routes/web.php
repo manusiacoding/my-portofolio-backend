@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,18 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/edit', 'edit')->name('experience.edit');
             Route::put('/{id}/update', 'update')->name('experience.update');
             Route::delete('/{id}/delete', 'destroy')->name('experience.destroy');
+        });
+    });
+
+    // Portfolio Routes
+    Route::prefix('portfolio')->group(function () {
+        Route::controller(PortfolioController::class)->group(function () {
+            Route::get('/', 'index')->name('portfolio.index');
+            Route::get('/add', 'create')->name('portfolio.create');
+            Route::post('/store', 'store')->name('portfolio.store');
+            Route::get('/{id}/edit', 'edit')->name('portfolio.edit');
+            Route::put('/{id}/update', 'update')->name('portfolio.update');
+            Route::delete('/{id}/delete', 'destroy')->name('portfolio.destroy');
         });
     });
 });
