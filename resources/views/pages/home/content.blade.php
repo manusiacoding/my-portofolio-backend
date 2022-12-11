@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Experiences</h6>
-                                    <h6 class="font-extrabold mb-0">0</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $experience }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Projects</h6>
-                                    <h6 class="font-extrabold mb-0">0</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $portfolio }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Awards</h6>
-                                    <h6 class="font-extrabold mb-0">0</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $award }}</h6>
                                 </div>
                             </div>
                         </div>

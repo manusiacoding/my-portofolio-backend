@@ -53,9 +53,10 @@ class AboutController extends Controller
             'major'         => $request->major,
             'email'         => $request->email,
             'status'        => $request->status,
+            'description'   => $request->description,
             'image'         => $image_path,
         ]);
 
-        return redirect()->route('about.index')->with('success', 'All data has been updated successfully !');
+        return redirect()->route('about.index')->with('success', 'Your data has been updated !');
     }
 }

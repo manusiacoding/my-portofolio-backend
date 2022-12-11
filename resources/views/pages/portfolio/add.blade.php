@@ -92,7 +92,7 @@
                                             <option value="Mobile Apps">Mobile Apps</option>
                                             <option value="Website">Website</option>
                                         </select>
-                                        @error('company')
+                                        @error('type')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
