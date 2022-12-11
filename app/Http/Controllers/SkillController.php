@@ -26,7 +26,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.skill.add');
     }
 
     /**
@@ -37,7 +37,17 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'name'          => 'required|string',
+            'percentage'    => 'required|string',
+        ]);
+
+        Skill::create([
+            'name'          => $attributes['name'],
+            'percentage'    => $attributes['percentage'],
+        ]);
+
+        return redirect()->route('skill.create')->with('success', 'Your data has been saved !');
     }
 
     /**
@@ -59,7 +69,9 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+        $skill = Skill::find($id);
+
+        return view('pages.skill.edit', compact(['skill']));
     }
 
     /**
@@ -71,7 +83,17 @@ class SkillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $attributes = $request->validate([
+            'name'          => 'required|string',
+            'percentage'    => 'required|string',
+        ]);
+
+        Skill::where('id', $id)->update([
+            'name'          => $attributes['name'],
+            'percentage'    => $attributes['percentage'],
+        ]);
+
+        return redirect()->route('skill.edit', $id)->with('success', 'Your data has been updated !');
     }
 
     /**
@@ -82,6 +104,8 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Skill::where('id', $id)->delete();
+
+        return redirect()->route('skill.index')->with('success', 'Your data has been deleted !');
     }
 }

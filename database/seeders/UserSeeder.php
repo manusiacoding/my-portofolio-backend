@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name'      => 'Fawwaz Hudzalfah Saputra',
+            'nickname'  => 'manusiacoding_',
             'email'     => 'manusiacoding29@gmail.com',
             'password'  => Hash::make('fawwaz29'),
             'image'     => 'storage/users/unnamed.jpg',

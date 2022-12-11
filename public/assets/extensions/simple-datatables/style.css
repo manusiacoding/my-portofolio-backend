@@ -6,9 +6,22 @@
 	border-bottom: 1px solid #d9d9d9;
 }
 
-.dataTable-top,
-.dataTable-bottom {
-	padding: 8px 10px;
+.dataTable-top{
+	padding-bottom: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .dataTable-top > .dataTable-dropdown > .dataTable-selector{
+        width: 50px;
+        padding: .450rem .6rem;
+    }
+    .dataTable-top > .dataTable-dropdown > label{
+        display: none;
+    }
+
+    .dataTable-top > .dataTable-search > .dataTable-input{
+        width: 200px;
+    }
 }
 
 .dataTable-top > nav:first-child,
@@ -23,10 +36,6 @@
 .dataTable-bottom > nav:last-child,
 .dataTable-bottom > div:last-child {
 	float: right;
-}
-
-.dataTable-selector {
-	padding: 6px;
 }
 
 .dataTable-input {

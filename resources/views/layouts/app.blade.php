@@ -5,16 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Dashboard | @yield('title')</title>
+    
+    <link rel="shortcut icon" href="{{ asset('assets/images/avatar.ico') }}" type="image/x-icon">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}" />
-
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon" />
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png" />
+    @include('components.css')
+    @yield('css')
 </head>
 
 <body>
+    <script src="{{ asset('assets/js/initTheme.js') }}"></script>
     <div id="app">
 
         @include('components.sidebar')
@@ -27,27 +26,21 @@
                 <div class="page-heading">
                     <div class="page-title">
                         <div class="row">
-                            <div class="col-12 col-md-6 order-md-1 order-last">
-                                <h3>Vertical Layout with Navbar</h3>
-                                <p class="text-subtitle text-muted">
-                                    Navbar will appear on the top of the page.
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-6 order-md-2 order-first">
+                            <div class="col-12 col-md-12 order-md-2 order-first">
                                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item">
-                                            <a href="index.html">Dashboard</a>
+                                            <a href="{{ route('home.index') }}">Dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active" aria-current="page">
-                                            Layout Vertical Navbar
+                                            @yield('title')
                                         </li>
                                     </ol>
                                 </nav>
                             </div>
                         </div>
                     </div>
-                    
+
                     @yield('content')
                 </div>
 
@@ -55,12 +48,15 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('assets/js/app.js') }}"></script>
-    
-    <script src="{{ asset('assets/js/initTheme.js') }}"></script>
-    <script src="{{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
+
+    @include('components.js')
+
+    @yield('js')
+    <script>
+        $('.logout').on('click', function(){
+            $('#btntrigger').click();
+        });
+    </script>
 </body>
 
 </html>

@@ -1,13 +1,11 @@
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2021 &copy; Mazer</p>
+            <p>©Copyright 2022 by MC TECHNOLOGY. All Rights Reserved</p>
         </div>
         <div class="float-end">
             <p>
-                Crafted with
-                <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-                by <a href="https://ahmadsaugi.com">Saugi</a>
+                Designed by <a href="https://faw-portofolio.vercel.app">Fawwaz Hudzalfah Saputra</a>
             </p>
         </div>
     </div>
