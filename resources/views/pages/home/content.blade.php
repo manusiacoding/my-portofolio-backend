@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('title', 'Home')
 
+<style>
+    .card-content{
+        max-height: 250px;
+        overflow:scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+</style>
+
 @section('content')
     <section class="row">
         <div class="col-12 col-lg-12">
@@ -30,7 +38,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
                                     <div class="stats-icon blue mb-2">
-                                        <i class="fa-solid fa-chart-line text-white"></i>
+                                        <i class="fa-solid fa-briefcase text-white"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
@@ -82,9 +90,9 @@
                         <div class="card-header">
                             <h4>Fawwaz GitHub Repository</h4>
                         </div>
-                        <div class="card-content pb-4">
+                        <div class="card-content pb-0">
                             @foreach ($datarepos as $key => $item)
-                                <div class="recent-message d-flex px-4 py-3">
+                                <div class="recent-message d-flex px-4 mb-0">
                                     <div class="avatar avatar-md">
                                         <img src="{{ asset('assets/images/avatar.ico') }}" />
                                     </div>

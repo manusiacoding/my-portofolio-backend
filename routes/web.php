@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,18 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/edit', 'edit')->name('skill.edit');
             Route::put('/{id}/update', 'update')->name('skill.update');
             Route::delete('/{id}/delete', 'destroy')->name('skill.destroy');
+        });
+    });
+
+    // Education Routes
+    Route::prefix('education')->group(function () {
+        Route::controller(EducationController::class)->group(function () {
+            Route::get('/', 'index')->name('education.index');
+            Route::get('/add', 'create')->name('education.create');
+            Route::post('/store', 'store')->name('education.store');
+            Route::get('/{id}/edit', 'edit')->name('education.edit');
+            Route::put('/{id}/update', 'update')->name('education.update');
+            Route::delete('/{id}/delete', 'destroy')->name('education.destroy');
         });
     });
 });
