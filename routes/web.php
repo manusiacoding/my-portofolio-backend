@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AwardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HomeController;
@@ -19,12 +20,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // force logout routes, temporary for debugging
 Route::get('/force/logout', function () {
     Auth::guard('web')->logout();
     return redirect()->route('login');
 });
-
 
 Route::middleware(['auth'])->group(function () {
     // Home Routes
@@ -83,6 +84,18 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/edit', 'edit')->name('portfolio.edit');
             Route::put('/{id}/update', 'update')->name('portfolio.update');
             Route::delete('/{id}/delete', 'destroy')->name('portfolio.destroy');
+        });
+    });
+
+    // Award Routes
+    Route::prefix('award')->group(function () {
+        Route::controller(AwardController::class)->group(function () {
+            Route::get('/', 'index')->name('award.index');
+            Route::get('/add', 'create')->name('award.create');
+            Route::post('/store', 'store')->name('award.store');
+            Route::get('/{id}/edit', 'edit')->name('award.edit');
+            Route::put('/{id}/update', 'update')->name('award.update');
+            Route::delete('/{id}/delete', 'destroy')->name('award.destroy');
         });
     });
 });

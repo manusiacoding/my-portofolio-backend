@@ -77,6 +77,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ Request::is('award') ? 'active' : '' }}">
+                    <a href="{{ route('award.index') }}" class="sidebar-link">
+                        <i class="fa-solid fa-award "></i>
+                        <span>Award</span>
+                    </a>
+                </li>
+
                 {{-- <li class="sidebar-item has-sub">
                     <a href="#" class="sidebar-link">
                         <i class="bi bi-grid-1x2-fill"></i>
