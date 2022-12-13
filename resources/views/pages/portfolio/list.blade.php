@@ -50,7 +50,7 @@
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $data->name }}</td>
                                 <td>{{ $data->company_name }}</td>
-                                <td>{{ $data->type }}</td>
+                                <td>@if($data->type == "mobileapp") Mobile App @else Website @endif</td>
                                 <td>{{ $data->url }}</td>
                                 <td>{{ $data->description }}</td>
                                 <td><img src="{{ asset($data->image) }}" alt="image" class="img-thumbnail"></td>

@@ -16,7 +16,7 @@ class EducationController extends Controller
      */
     public function index(): JsonResponse
     {
-        $education = Education::all();
+        $education = Education::select('*')->orderBy('id', 'DESC')->get();
 
         return response()->json([
             'status'    => true,

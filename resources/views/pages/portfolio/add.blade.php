@@ -89,8 +89,8 @@
                                     <div class="position-relative">
                                         <select name="type" id="email-id-icon" class="form-control @error('type') is-invalid @enderror">
                                             <option value="" selected disabled>Choose project type</option>
-                                            <option value="Mobile Apps">Mobile Apps</option>
-                                            <option value="Website">Website</option>
+                                            <option value="mobileapp">Mobile Apps</option>
+                                            <option value="website">Website</option>
                                         </select>
                                         @error('type')
                                             <span class="invalid-feedback" role="alert">

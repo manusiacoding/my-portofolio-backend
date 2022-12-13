@@ -16,7 +16,7 @@ class SkillController extends Controller
      */
     public function index(): JsonResponse
     {
-        $skill = Skill::all();
+        $skill = Skill::select('*')->orderBy('id', 'ASC')->get();
 
         return response()->json([
             'status'    => true,

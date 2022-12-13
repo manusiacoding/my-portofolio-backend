@@ -16,7 +16,7 @@ class PortfolioController extends Controller
      */
     public function index(): JsonResponse
     {
-        $portfolio = Portfolio::all();
+        $portfolio = Portfolio::select('*')->orderBy('id', 'DESC')->get();
 
         return response()->json([
             'status'    => true,

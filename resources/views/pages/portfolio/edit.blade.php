@@ -90,8 +90,8 @@
                                     <div class="position-relative">
                                         <select name="type" id="email-id-icon" class="form-control @error('type') is-invalid @enderror">
                                             <option value="" selected disabled>Choose project type</option>
-                                            <option value="Mobile Apps" @if($portfolio->type == "Mobile Apps") selected @endif>Mobile Apps</option>
-                                            <option value="Website" @if($portfolio->type == "Website") selected @endif>Website</option>
+                                            <option value="mobileapp" @if($portfolio->type == "mobileapp") selected @endif>Mobile Apps</option>
+                                            <option value="website" @if($portfolio->type == "website") selected @endif>Website</option>
                                         </select>
                                         @error('company')
                                             <span class="invalid-feedback" role="alert">

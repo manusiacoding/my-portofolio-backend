@@ -13,9 +13,9 @@
                     <li class="nav-item dropdown me-3">
                         <a class="nav-link active text-gray-600 position-relative" href="{{ route('message.index') }}">
                             <i class="bi bi-envelope bi-sub fs-4"></i>
-                            <span class="position-absolute top-10 start-100 translate-middle badge rounded-circle bg-danger">
+                            {{-- <span class="position-absolute top-10 start-100 translate-middle badge rounded-circle bg-danger">
                                 {{ $message }}
-                            </span>
+                            </span> --}}
                         </a>
                     </li>
                     <li class="nav-item dropdown me-3">

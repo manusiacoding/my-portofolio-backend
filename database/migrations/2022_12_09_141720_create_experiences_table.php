@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('company');
             $table->string('position');
             $table->string('date');
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

@@ -16,11 +16,11 @@ class ExperienceController extends Controller
      */
     public function index(): JsonResponse
     {
-        $experience = Experience::all();
+        $experience = Experience::select('*')->orderBy('id', 'DESC')->get();
 
         return response()->json([
             'status'    => true,
-            'data'      => $experience,    
+            'data'      => $experience,
         ], 200);
     }
 

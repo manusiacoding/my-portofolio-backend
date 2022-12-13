@@ -16,7 +16,7 @@ class AwardController extends Controller
      */
     public function index(): JsonResponse
     {
-        $award = Award::all();
+        $award = Award::select('*')->orderBy('id', 'DESC')->get();
 
         return response()->json([
             'status'    => true,
