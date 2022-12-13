@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\About;
+use App\Models\Skill;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class SkillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,11 @@ class AboutController extends Controller
      */
     public function index(): JsonResponse
     {
-        $about = About::all()->first();
+        $skill = Skill::all();
 
         return response()->json([
             'status'    => true,
-            'data'      => $about,
+            'data'      => $skill,
         ], 200);
     }
 }
