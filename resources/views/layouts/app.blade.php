@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Dashboard | @yield('title')</title>
+    <title>My Portfolio | @yield('title')</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/images/avatar.ico') }}" type="image/x-icon">
 
     @include('components.css')
 
     {{-- @vite('resources/css/app.css') --}}
-    
+
     @yield('css')
 </head>
 

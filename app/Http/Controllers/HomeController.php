@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Award;
 use App\Models\Experience;
+use App\Models\Message;
 use App\Models\Portfolio;
 use App\Models\Skill;
 use App\Models\User;
@@ -38,6 +39,8 @@ class HomeController extends Controller
         $portfolio = Portfolio::all()->count();
         $award = Award::all()->count();
 
-        return view('pages.home.content', compact(['datarepos', 'skill', 'experience', 'portfolio', 'award']));
+        $message = Message::where('status', 0)->count();
+
+        return view('pages.home.content', compact(['datarepos', 'skill', 'experience', 'portfolio', 'award', 'message']));
     }
 }

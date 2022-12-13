@@ -5,6 +5,7 @@ use App\Http\Controllers\AwardController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
@@ -96,6 +97,16 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/{id}/edit', 'edit')->name('award.edit');
             Route::put('/{id}/update', 'update')->name('award.update');
             Route::delete('/{id}/delete', 'destroy')->name('award.destroy');
+        });
+    });
+
+    // Message Routes
+    Route::prefix('message')->group(function () {
+        Route::controller(MessageController::class)->group(function () {
+            Route::get('/', 'index')->name('message.index');
+            Route::get('/{id}/show', 'show')->name('message.show');
+            Route::get('/{id}/send', 'send')->name('message.send');
+            Route::get('/{id}/postemail', 'postemail')->name('message.postemail');
         });
     });
 });
